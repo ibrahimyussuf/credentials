@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Retrieve Credentials</title>
+    <script>
+        // Function to get query parameters from the URL
+        function getQueryParams() {
+            const params = new URLSearchParams(window.location.search);
+            const email = params.get('email');
+            const password = params.get('password');
+            return { email, password };
+        }
+
+        // Display the credentials on the page
+        window.onload = function() {
+            const credentials = getQueryParams();
+            document.getElementById('email').textContent = credentials.email;
+            document.getElementById('password').textContent = credentials.password;
+        };
+    </script>
+</head>
+<body>
+    <h1>Retrieved Credentials</h1>
+    <p>Email: <span id="email"></span></p>
+    <p>Password: <span id="password"></span></p>
+</body>
+</html>
